@@ -50,6 +50,14 @@ class Optimizer
         $this->gifsicle = new Gifsicle($optimizer[self::GIFSICLE_PATH]);
     }
 
+    /**
+     * Optimize image
+     *
+     * @param string $input
+     * @param string $output
+     *
+     * @throws Exception
+     */
     public function optimize($input, $output = '')
     {
         switch (pathinfo($input, PATHINFO_EXTENSION)) {
@@ -68,9 +76,13 @@ class Optimizer
         }
 
         if (! empty($output)) {
-            file_put_contents($output, $content);
+            $result = file_put_contents($output, $content);
         } else {
-            file_put_contents($input, $content);
+            $result = file_put_contents($input, $content);
+        }
+
+        if (false === $result) {
+            throw new Exception('Could not write to file');
         }
     }
 }
