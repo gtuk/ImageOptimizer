@@ -1,0 +1,32 @@
+{
+  "name": "gtuk/image-optimizer",
+  "author": "Florian Lambart",
+  "description": "PHP image optimizer for png, jpeg and gif files. It uses mozjpeg, pngquant and gifsicle for the optimization process",
+  "type": "library",
+  "keywords": [
+    "image optimizer",
+    "image",
+    "optimizer",
+    "optimize",
+    "compress",
+    "compression",
+    "optimization",
+    "mozjpeg",
+    "pngquant",
+    "gifsicle",
+    "php"
+  ],
+  "license": "MIT",
+  "minimum-stability": "stable",
+  "require": {
+    "php": ">=5.3"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "~4.8"
+  },
+  "autoload": {
+    "psr-0": {
+      "ImageOptimizer": "src/"
+    }
+  }
+}
