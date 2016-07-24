@@ -3,9 +3,9 @@
 namespace ImageOptimizer;
 
 use Exception;
-use ImageOptimizer\Optimizer\Gifsicle;
-use ImageOptimizer\Optimizer\Mozjpeg;
-use ImageOptimizer\Optimizer\Pngquant;
+use ImageOptimizer\Provider\Optimization\Gifsicle;
+use ImageOptimizer\Provider\Optimization\Mozjpeg;
+use ImageOptimizer\Provider\Optimization\Pngquant;
 
 /**
  * Class Optimizer
@@ -56,6 +56,8 @@ class Optimizer
      * @param string $input
      * @param string $output
      *
+     * @return bool
+     *
      * @throws Exception
      */
     public function optimize($input, $output = '')
@@ -84,5 +86,7 @@ class Optimizer
         if (false === $result) {
             throw new Exception('Could not write to file');
         }
+
+        return true;
     }
 }

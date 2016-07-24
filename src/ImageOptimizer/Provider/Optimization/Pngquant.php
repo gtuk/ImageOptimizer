@@ -1,18 +1,18 @@
 <?php
 
-namespace ImageOptimizer\Optimizer;
+namespace ImageOptimizer\Provider\Optimization;
 
 use Exception;
 
 /**
- * Class Gifsicle
+ * Class Pngquant
  *
- * @package ImageOptimizer\Optimizer
+ * @package ImageOptimizer\Provider\Optimization
  */
-class Gifsicle extends AbstractImage
+class Pngquant extends AbstractOptimizationProvider
 {
     /**
-     * Gifsicle constructor.
+     * Pngquant constructor.
      *
      * @param string $binaryPath
      */
@@ -22,19 +22,20 @@ class Gifsicle extends AbstractImage
     }
 
     /**
-     * Optimize gif
+     * Optimize png
      *
      * @param mixed $image
      *
      * @return string
+     *
      * @throws Exception
      */
     public function optimize($image)
     {
-        $content = shell_exec($this->binaryPath.' -O2 '.escapeshellarg($image));
+        $content = shell_exec($this->binaryPath.' - < '.escapeshellarg($image));
 
         if (!$content) {
-            throw new Exception();
+            throw new Exception('There was an error during the optimization');
         }
 
         return $content;

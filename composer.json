@@ -16,17 +16,17 @@
     "gifsicle",
     "php"
   ],
+  "minimum-stability": "dev",
   "license": "MIT",
-  "minimum-stability": "stable",
   "require": {
-    "php": ">=5.3"
+    "php": ">=5.4"
   },
   "require-dev": {
     "phpunit/phpunit": "~4.8"
   },
   "autoload": {
     "psr-0": {
-      "ImageOptimizer": "src/"
+      "ImageOptimizer": "src"
     }
   }
 }

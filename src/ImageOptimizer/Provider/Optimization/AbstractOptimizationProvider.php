@@ -1,18 +1,20 @@
 <?php
 
-namespace ImageOptimizer\Optimizer;
+namespace ImageOptimizer\Provider\Optimization;
+
+use Exception;
 
 /**
- * Class AbstractImage
+ * Class AbstractOptimizationProvider
  *
- * @package ImageOptimizer\Optimizer
+ * @package ImageOptimizer\Provider\Optimization
  */
-abstract class AbstractImage
+abstract class AbstractOptimizationProvider
 {
     protected $binaryPath;
 
     /**
-     * AbstractImage constructor.
+     * AbstractOptimizationProvider constructor.
      *
      * @param string $binaryPath
      */
@@ -26,7 +28,9 @@ abstract class AbstractImage
      *
      * @param mixed $image
      *
-     * @return void
+     * @return string
+     *
+     * @throws Exception
      */
     abstract public function optimize($image);
 }
